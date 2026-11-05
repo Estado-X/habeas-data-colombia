@@ -5,8 +5,9 @@
   'use strict';
 
   var TIPOS = {
-    consulta: { dias: 10, prorroga: 5, norma: 'artículo 14 de la Ley 1581 de 2012', desde: 'desde el recibo' },
-    reclamo: { dias: 15, prorroga: 8, norma: 'artículo 15 de la Ley 1581 de 2012', desde: 'desde el día siguiente al recibo' }
+    consulta: { dias: 10, prorroga: 5, norma: 'artículo 14 de la Ley 1581 de 2012' },
+    reclamo: { dias: 15, prorroga: 8, norma: 'artículo 15 de la Ley 1581 de 2012' },
+    cobranza: { dias: 0, prorroga: 0, norma: 'Ley 2300 de 2023' }
   };
 
   function v(x, alterno) { x = (x || '').trim(); return x || alterno; }
@@ -33,9 +34,11 @@
   function cierre(d, plazo) {
     var t = [];
     if (plazo) t.push(plazo, '');
-    t.push('Recibo la respuesta en: ' + v(d.correo, v(d.direccion, '[tu correo o dirección]')) + '.');
+    t.push('Recibo la respuesta en: ' + [d.correo, d.direccion].map(function (x) { return (x || '').trim(); }).filter(Boolean).join(' y en ') + '.');
+    if (!(d.correo || '').trim() && !(d.direccion || '').trim()) t[t.length - 1] = 'Recibo la respuesta en: [tu correo o dirección].';
     if (d.anexoCedula) t.push('', 'Anexo: copia de mi documento de identidad.');
     t.push('', 'Atentamente,', '', '', v(d.nombre, '[tu nombre completo]'), v(d.tipoDoc, 'Cédula de ciudadanía') + ' n.º ' + v(d.documento, '[número]'));
+    if (d.direccion) t.push(d.direccion.trim());
     if (d.correo) t.push(d.correo.trim());
     if (d.telefonoContacto) t.push(d.telefonoContacto.trim());
     return t.join('\n');
@@ -46,7 +49,7 @@
     return h ? ['Hechos:', h, ''] : [];
   }
 
-  var PLAZO_RECLAMO = 'De acuerdo con el artículo 15 de la Ley 1581 de 2012, dentro de los dos (2) días hábiles siguientes al recibo deben incluir en su base de datos la leyenda «reclamo en trámite», y tienen máximo quince (15) días hábiles, contados desde el día siguiente al recibo, para responder. Si no fuera posible, deben informarme los motivos y la nueva fecha, que no puede pasar de ocho (8) días hábiles más.';
+  var PLAZO_RECLAMO = 'De acuerdo con el artículo 15 de la Ley 1581 de 2012, dentro de los dos (2) días hábiles siguientes al recibo del reclamo completo deben incluir en su base de datos la leyenda «reclamo en trámite», y tienen máximo quince (15) días hábiles, contados desde el día siguiente al recibo, para responder. Si no fuera posible, deben informarme los motivos y la nueva fecha, que no puede pasar de ocho (8) días hábiles más.';
 
   function consulta(d, ciudadFecha) {
     var pide = lista([
@@ -130,7 +133,7 @@
         ? 'Solo autorizo que me contacten por: ' + canales + '. Les pido que no usen ningún otro canal (artículo 2 de la Ley 2300 de 2023: solo se puede contactar por los canales que el consumidor autorice).'
         : 'Les pido que me informen por qué canales me están contactando y que me permitan escoger los que autorizo (artículo 2 de la Ley 2300 de 2023).',
       '',
-      'Les recuerdo que, una vez establecido el contacto directo, no pueden contactarme por varios canales dentro de una misma semana ni más de una vez en el mismo día, y solo de lunes a viernes de 7:00 a. m. a 7:00 p. m. y los sábados de 8:00 a. m. a 3:00 p. m., nunca domingos ni festivos (artículo 3). Tampoco pueden contactar a mis referencias personales o de otra índole (artículo 4), hacer visitas a mi casa o a mi trabajo (artículo 6) ni preguntarme el motivo del no pago (artículo 7).',
+      'Les recuerdo que, una vez establecido el contacto directo, no pueden contactarme por varios canales dentro de una misma semana ni más de una vez en el mismo día, y solo de lunes a viernes de 7:00 a. m. a 7:00 p. m. y los sábados de 8:00 a. m. a 3:00 p. m., nunca domingos ni festivos (artículo 3). Tampoco pueden contactar a mis referencias personales o de otra índole (artículo 4), hacer visitas a mi casa o a mi trabajo, salvo las excepciones del artículo 6, ni preguntarme el motivo del no pago (artículo 7).',
       ''
     ];
     var faltas = [];
@@ -139,8 +142,8 @@
     if (d.visitas) faltas.push('han hecho visitas a mi casa o a mi lugar de trabajo');
     if (faltas.length) p.push('Les informo que ' + faltas.join('; ') + '. Les pido que lo suspendan de inmediato.', '');
     p = p.concat(hechos(d));
-    p.push('Esta solicitud no desconoce la obligación, si existe; se refiere solo a la forma en que me contactan. Les pido que me confirmen por escrito los ajustes y que informen de ella a las empresas que hagan la cobranza por ustedes.', '');
-    return { asunto: asunto, tipo: 'reclamo', texto: encabezado(d, ciudadFecha, asunto) + p.join('\n') + '\n' + cierre(d, PLAZO_RECLAMO) };
+    p.push('Esta solicitud no desconoce la obligación, si existe; se refiere solo a la forma en que me contactan. Desde que reciban esta carta, les pido que me contacten solo por los canales que autorizo, que me confirmen por escrito los ajustes y que informen de ella a las empresas que hagan la cobranza por ustedes.', '');
+    return { asunto: asunto, tipo: 'cobranza', texto: encabezado(d, ciudadFecha, asunto) + p.join('\n') + '\n' + cierre(d, '') };
   }
 
   function generar(tipo, d, ciudadFecha) {

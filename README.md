@@ -18,7 +18,7 @@ Escoges qué quieres pedir y la página arma la carta:
 |---|---|---|---|
 | ¿Qué datos míos tienen? | Saber qué guardan, para qué, de dónde los sacaron y a quién se los dieron | Ley 1581 de 2012, arts. 8 y 14 | 10 días hábiles (+5 si avisan) |
 | Bórrenlos o dejen de usarlos | Suprimir los datos, revocar la autorización para publicidad, o corregirlos | Ley 1581, arts. 8 y 15; Decreto 1074 de 2015, art. 2.2.2.25.2.6 | 15 días hábiles (+8 si avisan) |
-| Dejen de llamarme o escribirme | Publicidad y ventas, o cobranzas fuera de las reglas | Ley 2300 de 2023 («Dejen de fregar»), arts. 2 a 7; Ley 1581, art. 15 | 15 días hábiles (+8 si avisan) |
+| Dejen de llamarme o escribirme | Publicidad y ventas (con revocatoria de la autorización), o cobranzas fuera de las reglas | Ley 2300 de 2023 («Dejen de fregar»), arts. 2 a 7; para publicidad, también Ley 1581, art. 15 | Publicidad: 15 días hábiles (+8 si avisan). Cobranza: la ley no fija plazo; los canales autorizados rigen desde que reciben la carta |
 
 Luego:
 

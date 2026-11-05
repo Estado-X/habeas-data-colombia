@@ -86,3 +86,15 @@ test('sin datos, deja corchetes en lugar de inventar', () => {
   assert.match(c.texto, /\[tu nombre completo\]/);
   assert.match(c.texto, /\[Nombre de la empresa\]/);
 });
+
+test('cobranza no promete el plazo ni la leyenda de la Ley 1581', () => {
+  const c = C.generar('nollamar', Object.assign({ motivo: 'cobranza' }, d), 'x');
+  assert.strictEqual(c.tipo, 'cobranza');
+  assert.doesNotMatch(c.texto, /reclamo en trámite/);
+  assert.match(c.texto, /salvo las excepciones del artículo 6/);
+});
+
+test('la dirección entra en la respuesta y en la firma', () => {
+  const c = C.generar('consulta', Object.assign({}, d, { correo: '', direccion: 'Calle 45 # 13-20, Bogotá' }), 'x');
+  assert.match(c.texto, /Recibo la respuesta en: Calle 45 # 13-20, Bogotá\./);
+});

@@ -25,7 +25,7 @@
     <div class="opciones" role="radiogroup" aria-labelledby="t-que">
       <label class="opcion"><input type="radio" name="tipo" value="consulta"><span class="opcion__in"><strong>¿Qué datos míos tienen?</strong><span>Para saber qué guardan, para qué lo usan y de dónde lo sacaron. Consulta: 10 días hábiles.</span></span></label>
       <label class="opcion"><input type="radio" name="tipo" value="borrar" checked><span class="opcion__in"><strong>Bórrenlos o dejen de usarlos</strong><span>Para que los supriman, dejen de usarlos para publicidad o los corrijan. Reclamo: 15 días hábiles.</span></span></label>
-      <label class="opcion"><input type="radio" name="tipo" value="nollamar"><span class="opcion__in"><strong>Dejen de llamarme o escribirme</strong><span>Publicidad y ventas, o cobranzas fuera de las reglas de la ley «Dejen de fregar». Reclamo: 15 días hábiles.</span></span></label>
+      <label class="opcion"><input type="radio" name="tipo" value="nollamar"><span class="opcion__in"><strong>Dejen de llamarme o escribirme</strong><span>Publicidad y ventas, o cobranzas fuera de las reglas de la ley «Dejen de fregar».</span></span></label>
     </div>
 
     <div class="tarjeta sub" data-para="borrar">
@@ -83,6 +83,7 @@
         <div class="campo"><label for="documento">Número de documento</label><input type="text" id="documento" inputmode="numeric" autocomplete="off"></div>
         <div class="campo"><label for="ciudad">Ciudad desde donde escribes</label><input type="text" id="ciudad" autocomplete="address-level2"></div>
         <div class="campo"><label for="correo">Tu correo, para que te respondan</label><input type="email" id="correo" autocomplete="email"></div>
+        <div class="campo"><label for="direccion">Tu dirección (opcional)</label><input type="text" id="direccion" autocomplete="street-address"></div>
         <div class="campo"><label for="telefonoContacto">Tu teléfono (opcional)</label><input type="text" id="telefonoContacto" autocomplete="tel"></div>
         <div class="campo"><label for="empresa">Nombre de la empresa</label><input type="text" id="empresa"></div>
         <div class="campo"><label for="nit">NIT de la empresa (opcional)</label><input type="text" id="nit"></div>
@@ -104,18 +105,18 @@
         <div class="carta__cab">
           <div class="campo campo--fecha"><label for="fecha">Fecha en que la envías</label><input type="date" id="fecha"></div>
         </div>
-        <pre id="carta" class="carta__texto" tabindex="0" aria-live="polite"></pre>
+        <pre id="carta" class="carta__texto" tabindex="0" aria-label="Tu carta"></pre>
         <div class="acciones">
           <button type="button" class="boton" id="copiar">Copiar la carta</button>
           <a class="boton boton--claro" id="correo-btn" href="#">Abrir en mi correo</a>
           <button type="button" class="boton boton--claro" id="imprimir">Imprimir o guardar en PDF</button>
         </div>
-        <p class="nota">La carta se arma en tu navegador: nada de lo que escribes se envía a ningún lado. El envío lo haces tú, desde tu correo.</p>
+        <p class="nota">La carta se arma en tu navegador: nada de lo que escribes se envía a ningún lado. El envío lo haces tú, desde tu correo. Si en tu correo la carta sale cortada, usa «Copiar la carta» y pégala.</p>
       </div>
       <aside class="tarjeta plazo" aria-labelledby="t-plazo">
         <h3 id="t-plazo">El plazo</h3>
         <p class="plazo__etq" id="plazo-norma"></p>
-        <p class="plazo__fecha" id="plazo-fecha"></p>
+        <p class="plazo__fecha" id="plazo-fecha" aria-live="polite"></p>
         <p class="plazo__sub" id="plazo-prorroga"></p>
         <ol class="linea" id="linea"></ol>
       </aside>
@@ -136,9 +137,9 @@
       <div class="tarjeta">
         <h3>Si no responden o no cumplen</h3>
         <ul class="reglas">
-          <li><strong>Queja ante la Superintendencia de Industria y Comercio (SIC).</strong> Solo puedes ponerla después de haber enviado la consulta o el reclamo a la empresa (Ley 1581, art. 16). Adjunta tu carta y la prueba del envío. Se hace en <a href="https://www.sic.gov.co" target="_blank" rel="noopener">sic.gov.co</a>, en Protección de Datos Personales.</li>
+          <li><strong>Queja ante la Superintendencia de Industria y Comercio (SIC).</strong> Primero tienes que agotar la consulta o el reclamo ante la empresa: puedes quejarte cuando te responda mal o se venza el plazo sin respuesta (Ley 1581, art. 16). Adjunta tu carta y la prueba del envío. Se hace en <a href="https://www.sic.gov.co" target="_blank" rel="noopener">sic.gov.co</a>, en Protección de Datos Personales.</li>
           <li><strong>Publicidad y ventas:</strong> inscribe tus números en el <a href="https://tramitescrcom.gov.co" target="_blank" rel="noopener">Registro de Números Excluidos de la CRC</a>. Frena llamadas y mensajes comerciales, no las cobranzas.</li>
-          <li><strong>Cobranzas:</strong> si quien cobra es un banco u otra entidad vigilada por la Superintendencia Financiera, también puedes quejarte ante ella; las dos superintendencias sancionan (Ley 2300, art. 9).</li>
+          <li><strong>Cobranzas:</strong> si quien cobra es un banco u otra entidad vigilada por la Superintendencia Financiera, la queja va ante ella; si es otra empresa, ante la SIC (Ley 2300, art. 9).</li>
         </ul>
       </div>
     </div>
