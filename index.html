@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu carta de hábeas data: que borren tus datos o dejen de llamarte · Estado X</title>
+<meta name="description" content="Arma gratis la carta para preguntarle a una empresa qué datos tuyos tiene, pedirle que los borre o que deje de llamarte, con los plazos de la Ley 1581 y la Ley 2300 («Dejen de fregar»).">
+<meta property="og:title" content="Que borren tus datos o dejen de llamarte">
+<meta property="og:description" content="La carta lista, con la ley citada, el plazo que tiene la empresa y qué hacer si no responde.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body>
+<header class="banda">
+  <div class="contenedor banda__in">
+    <p class="kicker">Herramienta abierta · Estado X</p>
+    <h1>Que borren tus datos o <em>dejen de llamarte</em></h1>
+    <p class="banda__sub">En Colombia puedes preguntarle a cualquier empresa qué datos tuyos tiene, pedirle que los borre y decirle cómo puede contactarte. Aquí armas la carta con la ley citada, sabes cuánto tiempo tiene para responder y qué hacer si no lo hace.</p>
+  </div>
+</header>
+
+<main class="contenedor">
+  <section class="bloque" aria-labelledby="t-que">
+    <h2 id="t-que"><span class="paso">1</span> ¿Qué quieres pedir?</h2>
+    <div class="opciones" role="radiogroup" aria-labelledby="t-que">
+      <label class="opcion"><input type="radio" name="tipo" value="consulta"><span class="opcion__in"><strong>¿Qué datos míos tienen?</strong><span>Para saber qué guardan, para qué lo usan y de dónde lo sacaron. Consulta: 10 días hábiles.</span></span></label>
+      <label class="opcion"><input type="radio" name="tipo" value="borrar" checked><span class="opcion__in"><strong>Bórrenlos o dejen de usarlos</strong><span>Para que los supriman, dejen de usarlos para publicidad o los corrijan. Reclamo: 15 días hábiles.</span></span></label>
+      <label class="opcion"><input type="radio" name="tipo" value="nollamar"><span class="opcion__in"><strong>Dejen de llamarme o escribirme</strong><span>Publicidad y ventas, o cobranzas fuera de las reglas de la ley «Dejen de fregar». Reclamo: 15 días hábiles.</span></span></label>
+    </div>
+
+    <div class="tarjeta sub" data-para="borrar">
+      <p class="etq" id="t-alcance">¿Qué quieres que hagan?</p>
+      <div class="chips" role="radiogroup" aria-labelledby="t-alcance">
+        <label class="chip"><input type="radio" name="alcance" value="todo" checked><span>Borrar todos mis datos</span></label>
+        <label class="chip"><input type="radio" name="alcance" value="publicidad"><span>No usarlos para publicidad</span></label>
+        <label class="chip"><input type="radio" name="alcance" value="corregir"><span>Corregir o actualizar</span></label>
+      </div>
+      <div class="campo" data-para-alcance="corregir" hidden>
+        <label for="correccion">¿Qué dato está mal y cuál es el correcto?</label>
+        <input type="text" id="correccion" placeholder="Mi dirección es Calle 45 # 13-20, no Calle 54">
+      </div>
+    </div>
+
+    <div class="tarjeta sub" data-para="nollamar" hidden>
+      <p class="etq" id="t-motivo">¿Quién te llama o te escribe?</p>
+      <div class="chips" role="radiogroup" aria-labelledby="t-motivo">
+        <label class="chip"><input type="radio" name="motivo" value="publicidad" checked><span>Me ofrecen cosas (publicidad o ventas)</span></label>
+        <label class="chip"><input type="radio" name="motivo" value="cobranza"><span>Me cobran una deuda</span></label>
+      </div>
+      <div data-para-motivo="publicidad">
+        <div class="campos">
+          <div class="campo"><label for="telefonos">Números en los que te llaman o te escriben</label><input type="text" id="telefonos" placeholder="300 000 0000"></div>
+          <div class="campo"><label for="correosAfectados">Correos en los que te escriben (opcional)</label><input type="text" id="correosAfectados"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="rne"> <span>Ya inscribí mis números en el Registro de Números Excluidos de la CRC</span></label>
+      </div>
+      <div data-para-motivo="cobranza" hidden>
+        <p class="etq">Solo acepto que me contacten por</p>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" name="canal" value="correo electrónico"><span>Correo electrónico</span></label>
+          <label class="chip"><input type="checkbox" name="canal" value="mensaje de texto (SMS)"><span>SMS</span></label>
+          <label class="chip"><input type="checkbox" name="canal" value="WhatsApp"><span>WhatsApp</span></label>
+          <label class="chip"><input type="checkbox" name="canal" value="llamada telefónica"><span>Llamada</span></label>
+          <label class="chip"><input type="checkbox" name="canal" value="carta física"><span>Carta física</span></label>
+        </div>
+        <p class="etq">¿Qué ha pasado? (marca lo que aplique)</p>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="fueraHorario"> <span>Me contactan fuera de horario o varias veces el mismo día</span></label>
+          <label class="check"><input type="checkbox" id="referencias"> <span>Llaman a mis referencias, familiares o conocidos</span></label>
+          <label class="check"><input type="checkbox" id="visitas"> <span>Han ido a mi casa o a mi trabajo</span></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-datos">
+    <div class="tarjeta">
+      <h2 id="t-datos"><span class="paso">2</span> Tus datos y los de la empresa</h2>
+      <div class="campos">
+        <div class="campo"><label for="nombre">Tu nombre completo</label><input type="text" id="nombre" autocomplete="name"></div>
+        <div class="campo"><label for="tipoDoc">Documento</label>
+          <select id="tipoDoc"><option>cédula de ciudadanía</option><option>cédula de extranjería</option><option>pasaporte</option><option>tarjeta de identidad</option><option>permiso por protección temporal</option></select></div>
+        <div class="campo"><label for="documento">Número de documento</label><input type="text" id="documento" inputmode="numeric" autocomplete="off"></div>
+        <div class="campo"><label for="ciudad">Ciudad desde donde escribes</label><input type="text" id="ciudad" autocomplete="address-level2"></div>
+        <div class="campo"><label for="correo">Tu correo, para que te respondan</label><input type="email" id="correo" autocomplete="email"></div>
+        <div class="campo"><label for="telefonoContacto">Tu teléfono (opcional)</label><input type="text" id="telefonoContacto" autocomplete="tel"></div>
+        <div class="campo"><label for="empresa">Nombre de la empresa</label><input type="text" id="empresa"></div>
+        <div class="campo"><label for="nit">NIT de la empresa (opcional)</label><input type="text" id="nit"></div>
+        <div class="campo campo--ancho"><label for="correoEmpresa">Correo de la empresa para datos personales</label><input type="email" id="correoEmpresa">
+          <p class="campo__ayuda">Búscalo en su «política de tratamiento de datos» (casi siempre al pie de su página web) o en el <a href="https://rnbd.sic.gov.co/sisi/consultaTitulares/consultas/" target="_blank" rel="noopener">Registro Nacional de Bases de Datos de la SIC</a>.</p></div>
+        <div class="campo campo--ancho"><label for="hechos">Cuenta qué pasó (opcional)</label><textarea id="hechos" rows="3" placeholder="Desde marzo me llaman todos los días del número 601 000 0000 para ofrecerme una tarjeta de crédito. Nunca les di mis datos."></textarea></div>
+      </div>
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="pruebaAutorizacion" checked> <span>Pedir copia de la autorización que dicen que les di</span></label>
+        <label class="check"><input type="checkbox" id="anexoCedula"> <span>Voy a adjuntar copia de mi documento (algunas empresas la piden para verificar que eres tú)</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-carta">
+    <h2 id="t-carta"><span class="paso">3</span> Tu carta</h2>
+    <div class="carta-grid">
+      <div class="tarjeta carta">
+        <div class="carta__cab">
+          <div class="campo campo--fecha"><label for="fecha">Fecha en que la envías</label><input type="date" id="fecha"></div>
+        </div>
+        <pre id="carta" class="carta__texto" tabindex="0" aria-live="polite"></pre>
+        <div class="acciones">
+          <button type="button" class="boton" id="copiar">Copiar la carta</button>
+          <a class="boton boton--claro" id="correo-btn" href="#">Abrir en mi correo</a>
+          <button type="button" class="boton boton--claro" id="imprimir">Imprimir o guardar en PDF</button>
+        </div>
+        <p class="nota">La carta se arma en tu navegador: nada de lo que escribes se envía a ningún lado. El envío lo haces tú, desde tu correo.</p>
+      </div>
+      <aside class="tarjeta plazo" aria-labelledby="t-plazo">
+        <h3 id="t-plazo">El plazo</h3>
+        <p class="plazo__etq" id="plazo-norma"></p>
+        <p class="plazo__fecha" id="plazo-fecha"></p>
+        <p class="plazo__sub" id="plazo-prorroga"></p>
+        <ol class="linea" id="linea"></ol>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bloque" aria-labelledby="t-sigue">
+    <h2 id="t-sigue"><span class="paso">4</span> Qué sigue</h2>
+    <div class="dos">
+      <div class="tarjeta">
+        <h3>Para enviarla</h3>
+        <ul class="reglas">
+          <li>Mándala al correo de datos personales de la empresa, o por el canal que indique su política de tratamiento. Si no lo encuentras, al correo de servicio al cliente o de notificaciones judiciales.</li>
+          <li><strong>Guarda la prueba:</strong> el correo enviado, el número de radicado o la copia firmada con sello de recibido. La necesitas si tienes que quejarte.</li>
+          <li>Usa el canal que la empresa tenga habilitado para datos personales: la ley pide que la solicitud se presente por ese medio, siempre que quede prueba (Ley 1581, art. 14).</li>
+        </ul>
+      </div>
+      <div class="tarjeta">
+        <h3>Si no responden o no cumplen</h3>
+        <ul class="reglas">
+          <li><strong>Queja ante la Superintendencia de Industria y Comercio (SIC).</strong> Solo puedes ponerla después de haber enviado la consulta o el reclamo a la empresa (Ley 1581, art. 16). Adjunta tu carta y la prueba del envío. Se hace en <a href="https://www.sic.gov.co" target="_blank" rel="noopener">sic.gov.co</a>, en Protección de Datos Personales.</li>
+          <li><strong>Publicidad y ventas:</strong> inscribe tus números en el <a href="https://tramitescrcom.gov.co" target="_blank" rel="noopener">Registro de Números Excluidos de la CRC</a>. Frena llamadas y mensajes comerciales, no las cobranzas.</li>
+          <li><strong>Cobranzas:</strong> si quien cobra es un banco u otra entidad vigilada por la Superintendencia Financiera, también puedes quejarte ante ella; las dos superintendencias sancionan (Ley 2300, art. 9).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="tarjeta abogados">
+      <div>
+        <h2>¿Eres abogado o abogada?</h2>
+        <p class="ayuda">Esta carta es una muestra de lo que se puede automatizar en un despacho. En IA para Abogados de Estado X aprendes a armar tus propias herramientas con IA, con tus plantillas y tus normas.</p>
+      </div>
+      <a class="boton" href="https://estadox.com/abogados" target="_blank" rel="noopener">Conoce IA para Abogados</a>
+    </div>
+  </section>
+
+  <section class="bloque dos">
+    <div class="tarjeta">
+      <h2>Las normas</h2>
+      <ul class="reglas">
+        <li><strong>Constitución, art. 15:</strong> derecho a conocer, actualizar y rectificar la información que se tenga sobre ti.</li>
+        <li><strong>Ley 1581 de 2012:</strong> tus derechos (art. 8), consulta en 10 días hábiles (art. 14), reclamo en 15 días hábiles con la leyenda «reclamo en trámite» (art. 15) y queja ante la SIC después de la empresa (art. 16).</li>
+        <li><strong>Decreto 1074 de 2015, art. 2.2.2.25.2.6:</strong> puedes pedir la supresión y revocar la autorización en todo momento, salvo que tengas un deber legal o contractual de permanecer en la base de datos.</li>
+        <li><strong>Ley 2300 de 2023 («Dejen de fregar»):</strong> canales autorizados (art. 2), horarios y frecuencia (art. 3), nada de llamar a referencias (art. 4), publicidad con las mismas reglas y forma fácil de cancelar (art. 5), sin visitas (art. 6).</li>
+      </ul>
+    </div>
+    <div class="tarjeta">
+      <h2>Límites</h2>
+      <ul class="reglas">
+        <li>Es una guía para ejercer tus derechos, <strong>no asesoría legal</strong>. Para un caso con daños, demandas o una deuda en discusión, consulta a un abogado.</li>
+        <li>Los reportes en centrales de riesgo (Datacrédito, TransUnion) tienen sus propias reglas (Ley 1266 de 2008) y otro trámite.</li>
+        <li>Pedir que dejen de llamarte por una deuda no borra la deuda: solo pone reglas a cómo te contactan.</li>
+        <li>Si tienes un deber legal o contractual de seguir en la base (por ejemplo, un contrato vigente), la empresa puede negarse a borrar ciertos datos, pero debe decirte por qué.</li>
+        <li>Los plazos se cuentan en días hábiles (lunes a viernes, sin festivos de Colombia) desde el día siguiente al envío. Si envías el correo después del horario de la empresa, puede contarse desde el día hábil siguiente.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie__in">
+    <p>Todo pasa en tu navegador: lo que escribes no se envía a ningún lado.</p>
+    <p>Inspirada en <a href="https://github.com/datenanfragen/website" target="_blank" rel="noopener">Datenanfragen.de</a> (licencia MIT). Código abierto en <a href="https://github.com/Estado-X/habeas-data-colombia" target="_blank" rel="noopener">GitHub</a>.</p>
+    <p class="firma">Hecho por <a href="https://estadox.com" target="_blank" rel="noopener">Estado <em>X</em></a></p>
+  </div>
+</footer>
+<script src="assets/plazos.js"></script>
+<script src="assets/cartas.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
